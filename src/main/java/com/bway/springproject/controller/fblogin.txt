@@ -1,0 +1,23 @@
+
+	@RequestMapping(value = "/facebook", method = RequestMethod.GET)
+	public String fbLogin(){
+		
+		//String secret_key = "c85c3bbaeded9ce1ea6af891cc8733c2";
+		//String app_id = "1439123129660532";
+		
+		return "redirect:https://www.facebook.com/dialog/oauth?client_id=1439123129660532&redirect_uri=http://localhost:8080/smvcdemo/authorize/facebook&response_type=code&scope=email";
+	}
+	
+	
+	
+	@RequestMapping(value = "/authorize/facebook", method = RequestMethod.GET)
+	public String saveFbUser(String code, Model model, HttpServletRequest request){
+		
+		model.addAttribute("slist", sdao.getAll());
+		
+	      return "home";
+	      
+	      
+	      
+	      }
+	      
